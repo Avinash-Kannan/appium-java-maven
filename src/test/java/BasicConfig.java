@@ -33,7 +33,7 @@ public class BasicConfig {
                         "src/test/app/TestApp.app");
 
 
-        URL url = new URL("http://127.0.0.1:4723/wd/hub");
+        URL url = new URL("http://127.0.0.1:8100/wd/hub");
 
         driver = new IOSDriver<IOSElement>(url, capabilities);
         //driver = new AndroidDriver<AndroidElement>(url, capabilities);
