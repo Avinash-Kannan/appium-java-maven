@@ -35,7 +35,7 @@ public class BasicConfig {
 
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
 
- driver = new IOSDriver<IOSElement>(url, capabilities);
+        driver = new IOSDriver<IOSElement>(url, capabilities);
         //driver = new AndroidDriver<AndroidElement>(url, capabilities);
         WebDriverWait wait = new WebDriverWait(driver, 10);
     }

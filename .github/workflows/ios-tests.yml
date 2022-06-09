@@ -19,17 +19,13 @@ jobs:
       - name: Node
         uses: actions/setup-node@v3
 
-      - name: Install Dependencies
-        run: |
-          mvn clean
-          mvn install
-
       - name: Start Appium Server
         run: |
           npx install -g appium@v1.22.3
           appium -v
           appium &>/dev/null &
 
-      - name: Run Appium tests
+      - name: Install Dependencies and Run Appium tests
         run: |
-          mvn test
+          mvn clean
+          mvn install
