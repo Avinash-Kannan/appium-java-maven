@@ -30,7 +30,7 @@ public class BasicConfig {
         // MobileCapabilityType.APP is set to the IOS app bundle file path that was created in Step 1. Replace it with your app bundle file path.
         capabilities
                 .setCapability(MobileCapabilityType.APP,
-                        "/Users/avinashkannan/Documents/gatling-workspace/appium-java-demo/src/test/app/TestApp.app");
+                        "src/test/app/TestApp.app");
 
 
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
