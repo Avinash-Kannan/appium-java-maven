@@ -24,9 +24,9 @@ public class BasicConfig {
 
 //        // iOS capabilities
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "XCUITest");
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone 11");
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone 13");
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "iOS");
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "15.2");
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "15.0");
         // MobileCapabilityType.APP is set to the IOS app bundle file path that was created in Step 1. Replace it with your app bundle file path.
         capabilities
                 .setCapability(MobileCapabilityType.APP,
