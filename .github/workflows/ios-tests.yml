@@ -34,8 +34,8 @@ jobs:
           mvn install
 
       - name: Upload Test Artifact - GitHub Action
-          if: always()
-          uses: actions/upload-artifact@v2
-          with:
-            name: artifacts
-            path: target/surefire-reports
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifacts
+          path: target/surefire-reports
