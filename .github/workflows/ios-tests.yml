@@ -18,10 +18,13 @@ jobs:
 
       - name: Node
         uses: actions/setup-node@v3
+        with:
+          node-version: 14
 
       - name: Start Appium Server
         run: |
-          npx install -g appium@v1.22.3
+          node -v
+          npm install -g appium@v1.22.3
           appium -v
           appium &>/dev/null &
 
