@@ -28,6 +28,16 @@ jobs:
           appium -v
           appium &>/dev/null &
 
+      - name: Create iOS Simulator
+        run: |
+          xcrun simctl list
+          xcodebuild -version
+          xcrun simctl create 'iPhone 13' com.apple.CoreSimulator.SimDeviceType.iPhone-13 com.apple.CoreSimulator.SimRuntime.iOS-15-0 > deviceid.txt
+          DEVICEUUID=`cat deviceid.txt`
+          echo $DEVICEUUID
+          xcrun simctl boot $DEVICEUUID &
+          open -a Simulator --args -CurrentDeviceUDID DEVICEUUID
+
       - name: Install Dependencies and Run Appium tests
         run: |
           mvn clean
