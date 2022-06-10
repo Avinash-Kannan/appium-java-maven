@@ -8,7 +8,7 @@ jobs:
     timeout-minutes: 50
 
     env:
-      DEVELOPER_DIR: /Applications/Xcode_13.1.app
+      DEVELOPER_DIR: /Applications/Xcode_12.4.app
 
     steps:
       - name: Checkout
@@ -24,19 +24,18 @@ jobs:
       - name: Start Appium Server
         run: |
           node -v
-          npm install -g appium@v1.22.3
+          npm install -g appium@v1.21.0
           appium -v
-          appium &>/dev/null &
+          appium --address 127.0.0.1 --port 4723
 
       - name: Create iOS Simulator
         run: |
           xcrun simctl list
           xcodebuild -version
-          xcrun simctl create 'iPhone 13' com.apple.CoreSimulator.SimDeviceType.iPhone-13 com.apple.CoreSimulator.SimRuntime.iOS-15-0 > deviceid.txt
-          DEVICEUUID=`cat deviceid.txt`
-          echo $DEVICEUUID
-          xcrun simctl boot $DEVICEUUID &
-          open -a Simulator --args -CurrentDeviceUDID DEVICEUUID
+          xcrun simctl create 'iPhone 11' com.apple.CoreSimulator.SimDeviceType.iPhone-11 com.apple.CoreSimulator.SimRuntime.iOS-14-4 > deviceid.txt
+          DEVICEUDID=`cat deviceid.txt`
+          echo $DEVICEUDID
+          open -a Simulator --args -CurrentDeviceUDID $DEVICEUDID
 
       - name: Install Dependencies and Run Appium tests
         run: |
