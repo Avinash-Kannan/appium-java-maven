@@ -20,6 +20,7 @@ public class BasicConfig {
 
         // Android capabilities
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME,"UiAutomator2");
+        capabilities.setCapability("appWaitForLaunch", "false");
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME,"ANDROID");
        // caps.setCapability(MobileCapabilityType.PLATFORM_VERSION,"11");
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"TestEmulator");
@@ -40,7 +41,6 @@ public class BasicConfig {
 
         //driver = new IOSDriver<IOSElement>(url, capabilities);
         driver = new AndroidDriver<AndroidElement>(url, capabilities);
-        WebDriverWait wait = new WebDriverWait(driver, 10);
     }
 
 
