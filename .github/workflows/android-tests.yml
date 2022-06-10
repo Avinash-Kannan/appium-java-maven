@@ -27,8 +27,8 @@ jobs:
 
       - name: Create Android Emulator
         run: |
-          $ANDROID_HOME/tools/bin/sdkmanager --install "system-images;android-27;google_apis;x86"
-          $ANDROID_HOME/tools/bin/avdmanager create avd --force -n TestEmulator -d pixel --package 'system-images;android-27;google_apis;x86'
+          $ANDROID_HOME/tools/bin/sdkmanager --install "system-images;android-29;google_apis;x86"
+          $ANDROID_HOME/tools/bin/avdmanager create avd --force -n TestEmulator -d pixel --package 'system-images;android-29;google_apis;x86'
           echo $ANDROID_HOME/emulator/emulator -list-avds
           echo "Starting emulator"
           nohup $ANDROID_HOME/emulator/emulator -avd TestEmulator -skin 1080x1920 -memory 1024 -engine qemu2 -netfast -no-audio -no-snapshot -accel on > /dev/null 2>&1 &
