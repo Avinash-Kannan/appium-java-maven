@@ -30,7 +30,6 @@ jobs:
           $ANDROID_HOME/tools/bin/sdkmanager --install "system-images;android-29;google_apis;x86"
           $ANDROID_HOME/tools/bin/avdmanager create avd --force -n TestEmulator -d pixel --package 'system-images;android-29;google_apis;x86'
           $ANDROID_HOME/emulator/emulator -list-avds
-          $ANDROID_HOME/emulator/emulator @TestEmulator
 
       - name: Install Dependencies and Run Appium tests
         run: |
