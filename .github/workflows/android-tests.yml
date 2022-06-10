@@ -1,0 +1,45 @@
+name: Android
+
+on: [workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    timeout-minutes: 50
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+
+      - name: Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14
+
+      - name: Start Appium Server
+        run: |
+          node -v
+          npm install -g appium@v1.21.0
+          appium -v
+          appium --address 127.0.0.1 --port 4723 &
+
+      - name: Create Android Emulator
+        run: |
+          $ANDROID_HOME/tools/bin/sdkmanager --install "system-images;android-29;google_apis;x86"
+          $ANDROID_HOME/tools/bin/avdmanager create avd --force -n TestEmulator -d pixel --package 'system-images;android-29;google_apis;x86'
+          $ANDROID_HOME/emulator/emulator -list-avds
+          $ANDROID_HOME/emulator/emulator @TestEmulator
+
+      - name: Install Dependencies and Run Appium tests
+        run: |
+          mvn clean
+          mvn install
+
+      - name: Upload Test Artifact - GitHub Action
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifacts
+          path: target/surefire-reports
