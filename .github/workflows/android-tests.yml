@@ -18,12 +18,10 @@ jobs:
         with:
           node-version: 14
 
-      - name: Start Appium Server
+      - name: Install and Run Appium Server
         run: |
-          node -v
-          npm install -g appium@v1.22.3
-          appium -v
-          appium --address 127.0.0.1 --port 4723 &
+          chmod +x ./src/test/java/RunAppiumServer.sh
+          ./src/test/java/RunAppiumServer.sh
 
       - name: Create Emulator and Run Appium tests
         uses: reactivecircus/android-emulator-runner@v2
