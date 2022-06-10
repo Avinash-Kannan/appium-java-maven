@@ -20,8 +20,6 @@ public class BasicConfig {
 
         // Android capabilities
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME,"UiAutomator2");
-        capabilities.setCapability("appWaitForLaunch", "false");
-        capabilities.setCapability("uiautomator2ServerLaunchTimeout", 90000);
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME,"ANDROID");
        // caps.setCapability(MobileCapabilityType.PLATFORM_VERSION,"11");
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"TestEmulator");
