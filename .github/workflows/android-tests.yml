@@ -22,6 +22,7 @@ jobs:
         run: |
           node -v
           npm install -g appium@v1.21.0
+          npm install -g appium-doctor
           appium -v
 
       - name: Create Android Emulator
