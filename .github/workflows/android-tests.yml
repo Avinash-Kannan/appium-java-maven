@@ -23,7 +23,6 @@ jobs:
           node -v
           npm install -g appium@v1.21.0
           appium -v
-          appium --address 127.0.0.1 --port 4723 &
 
       - name: Create Android Emulator
         run: |
@@ -37,6 +36,8 @@ jobs:
       - name: Run Appium tests
         run: |
           $ANDROID_HOME/emulator/emulator -list-avds
+          $ANDROID_HOME/emulator/emulator @TestEmulator &
+          appium -a 127.0.0.1 -p 4723 &> appium_server.log &
           mvn install
 
       - name: Upload Test Artifact - GitHub Action
