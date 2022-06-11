@@ -34,6 +34,8 @@ jobs:
 
       - name: Run Appium tests
         run: |
+          $ANDROID_HOME/emulator/emulator -list-avds
+          $ANDROID_HOME/emulator/emulator @TestEmulator &
           mvn install
 
       - name: Upload Test Artifact - GitHub Action
