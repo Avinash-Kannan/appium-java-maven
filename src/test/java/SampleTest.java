@@ -1,3 +1,4 @@
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.ios.IOSElement;
 import org.testng.annotations.Test;
@@ -12,7 +13,7 @@ public class SampleTest extends BasicConfig {
         // Android
         driver.findElementByXPath("//android.widget.TextView[@text='Preference']").click();
 		driver.findElementByXPath("//android.widget.TextView[@text='1. Preferences from XML']").click();
-        List<AndroidElement> elementList = driver.findElementsByClassName("android.widget.CheckBox");
+        List<MobileElement> elementList = driver.findElementsByClassName("android.widget.CheckBox");
 		elementList.get(1).click();
 		elementList.get(2).click();
 

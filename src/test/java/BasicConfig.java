@@ -1,3 +1,6 @@
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileDriver;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.ios.IOSDriver;
@@ -12,7 +15,7 @@ import java.net.URL;
 public class BasicConfig {
 
     //static IOSDriver<IOSElement> driver;
-    static AndroidDriver<AndroidElement> driver;
+    static MobileDriver<MobileElement> driver;
 
     @BeforeTest
     public void setUpCapabilities() throws MalformedURLException {
@@ -39,7 +42,8 @@ public class BasicConfig {
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
 
         //driver = new IOSDriver<IOSElement>(url, capabilities);
-        driver = new AndroidDriver<AndroidElement>(url, capabilities);
+        driver = new AppiumDriver<MobileElement>(url, capabilities) {
+        };
     }
 
 
