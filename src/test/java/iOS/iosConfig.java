@@ -26,7 +26,7 @@ public class iosConfig extends extentReports {
         capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "14.4");
         capabilities
                 .setCapability(MobileCapabilityType.APP,
-                        "/Users/avinashkannan/Documents/gatling-workspace/appium-java-demo/src/main/app/TestApp.app");
+                        "src/main/app/TestApp.app");
 
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
 
