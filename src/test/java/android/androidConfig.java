@@ -24,7 +24,7 @@ public class androidConfig extends extentReports {
         // caps.setCapability(MobileCapabilityType.PLATFORM_VERSION,"11");
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"TestEmulator");
         capabilities.setCapability(MobileCapabilityType.APP,
-                "src/main/app/ApiDemos.apk");
+                "/Users/avinashkannan/Documents/gatling-workspace/appium-java-demo/src/main/app/ApiDemos.apk");
 
 
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
