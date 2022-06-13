@@ -40,11 +40,11 @@ jobs:
       - name: Install Dependencies and Run Appium tests
         run: |
           mvn clean
-          mvn install
+          mvn test -Dtest="iosTest"
 
       - name: Upload Test Artifact - GitHub Action
         if: always()
         uses: actions/upload-artifact@v2
         with:
           name: artifacts
-          path: target/surefire-reports
+          path: test-artifacts
