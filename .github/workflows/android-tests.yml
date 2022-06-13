@@ -38,11 +38,12 @@ jobs:
         run: |
           $ANDROID_HOME/emulator/emulator -list-avds
           $ANDROID_HOME/emulator/emulator @TestEmulator &
-          mvn install
+          mvn clean
+          mvn test -Dtest="androidTest" 
 
       - name: Upload Test Artifact - GitHub Action
         if: always()
         uses: actions/upload-artifact@v2
         with:
           name: artifacts
-          path: target/surefire-reports
+          path: test-artifacts
